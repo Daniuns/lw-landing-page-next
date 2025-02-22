@@ -10,8 +10,13 @@ export default {
     extend: {
       colors: {
         background: "var(--background)",
+        backgroundGoldenGradient: "var(--linear-golden-gradient)",
         foreground: "var(--foreground)",
         primary: "var(--primary)",
+        secondary: "var(--secondary)",
+      },
+      backgroundImage: {
+        goldenGradient: "linear-gradient(0deg, #faeaca 0%, #efcfa4 100%)",
       },
     },
   },

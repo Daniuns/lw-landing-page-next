@@ -1,6 +1,6 @@
 import book from "@/app/assets/images/book.jpg";
 import Image from "next/image";
-import amzSvg from "@/app/assets/images/amazon.svg";
+import bookIcon from "@/app/assets/images/book_icon.svg";
 
 export default function BuyTheBook() {
   return (
@@ -31,16 +31,16 @@ export default function BuyTheBook() {
           href="https://a.co/d/fWogqk1"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto px-6 flex items-center justify-center gap-2 py-2 mt-4 text-white bg-amber-700 border-2 border-amber-800 rounded-lg transition duration-300 hover:bg-amber-800 hover:border-amber-900 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-600"
+          className="w-full sm:w-40 px-6 flex items-center justify-center gap-2 py-2 mt-4 text-secondary bg-goldenGradient rounded-3xl transition duration-300 hover:scale-105"
         >
+          Adquira já
           <Image
             width={20}
             height={20}
             className="rounded-xl"
-            src={amzSvg}
+            src={bookIcon}
             alt="Amazon-logo"
           />
-          Comprar
         </a>
       </div>
     </div>

@@ -2,7 +2,6 @@ import ThemeSectionItem from "./ThemeSectionItem";
 
 export default function ThemeSection() {
   return (
-    // center items in grid
     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 place-items-center">
       <ThemeSectionItem
         title="Aventura"
