@@ -25,8 +25,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log("T:", GOOGLE_ANALYTICS_ID[3]);
-
   return (
     <html lang="en">
       <body
