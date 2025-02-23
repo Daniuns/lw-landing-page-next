@@ -2,7 +2,7 @@ import Image from "next/image";
 import castle from "@/app/assets/images/castle.png";
 import ThemeSection from "./components/Home/ThemeSection";
 import BuyTheBook from "./components/Home/BuyTheBook";
-import BuyButton from "./components/shared";
+import BuyButton from "./components/shared/BuyButton";
 export default function Home() {
   return (
     <main className="flex flex-col gap-8 ">

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import bookIcon from "@/app/assets/images/book_icon.svg";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function BuyButton() {
   return (
@@ -8,6 +11,12 @@ export default function BuyButton() {
       target="_blank"
       rel="noopener noreferrer"
       className="w-full sm:w-40 px-6 flex items-center justify-center gap-2 py-2 mt-4 text-secondary bg-goldenGradient border border-background rounded-3xl transition duration-300 hover:scale-105"
+      onClick={() =>
+        sendGAEvent({
+          event: "BuyButtonClickedEvent",
+          value: "BuyButtonClickedValue",
+        })
+      }
     >
       Adquira já
       <Image
