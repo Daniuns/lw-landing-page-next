@@ -5,9 +5,9 @@ import BuyTheBook from "./components/Home/BuyTheBook";
 import BuyButton from "./components/shared/BuyButton";
 import { GOOGLE_ANALYTICS_ID } from "@/settings";
 
-console.log("LOG:", GOOGLE_ANALYTICS_ID[2]);
-
 export default function Home() {
+  console.log("LOG:", GOOGLE_ANALYTICS_ID[2]);
+
   return (
     <main className="flex flex-col gap-8 ">
       <section>
