@@ -1,13 +1,12 @@
-export const runtime = "edge"; // Garante compatibilidade em produção
+import type { MetadataRoute } from "next";
 
-export const GET = () =>
-  new Response(
-    `User-agent: * 
-Allow: / 
-Sitemap: https://lewis-helderish.vercel.app/sitemap.xml`,
-    {
-      headers: {
-        "Content-Type": "text/plain",
-      },
-    }
-  );
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: "/private/",
+    },
+    sitemap: "https://lewis-helderish.vercel.app/sitemap.xml",
+  };
+}
