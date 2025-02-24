@@ -26,26 +26,3 @@ export default function Home() {
     </main>
   );
 }
-
-export const metadata = {
-  title: "Lewis Helderish A batalha pelo pergaminho",
-  description:
-    "Uma jornada épica de ação, magia e monstros! Conheça Lewis Helderish e embarque nessa aventura inesquecível.",
-  keywords:
-    "Lewis Helderish, Livro, Aventura, Magia, Monstros, Daniel Machado Ferreira",
-  openGraph: {
-    title: "Lewis Helderish A batalha pelo pergaminho",
-    description: "Livro de ação, aventura e fantasia",
-    url: "https://lewis-helderish.vercel.app/",
-    siteName: "Lewis Helderish",
-    images: [
-      {
-        url: "https://lewis-helderish.vercel.app/new-book-cover.png",
-        width: 1200,
-        height: 630,
-        alt: "Imagem da landing page",
-      },
-    ],
-    type: "website",
-  },
-};
