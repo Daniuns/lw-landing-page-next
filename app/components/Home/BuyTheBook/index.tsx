@@ -1,11 +1,10 @@
 import newBookCover from "@/app/assets/images/new-book-cover.png";
 import Image from "next/image";
-// import bookIcon from "@/app/assets/images/book_icon.svg";
 import BuyButton from "@/app/components/shared/BuyButton";
 
 export default function BuyTheBook() {
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-32 ">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 2xl:gap-32 ">
       <div className="min-w-40 max-w-sm lg:max-w-md h-auto rounded-xl justify-self-center lg:justify-self-end self-start">
         <Image className="rounded-xl" src={newBookCover} alt="Book" />
       </div>

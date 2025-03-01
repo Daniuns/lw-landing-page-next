@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GOOGLE_ANALYTICS_ID } from "@/settings";
+import MenuNavigation from "./components/MenuNavigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,8 +62,11 @@ export default function RootLayout({
         </script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased pb-12 pt-0 md:pt-14 md:pb-0`}
       >
+        <section className="">
+          <MenuNavigation />
+        </section>
         {children}
         <section className="bg-goldenGradient min-h-80 p-8">
           <Footer />

@@ -5,7 +5,7 @@ import instagram_logo from "@/app/assets/images/instagram_logo.png";
 export default function UsefulLinks() {
   return (
     <div>
-      <h1 className="font-normal">Link úteis</h1>
+      <h1 className="font-normal">Links úteis</h1>
       <h3 className="font-normal flex gap-2 items-center">
         <Image src={instagram_logo} alt="Tiktok" width={20} height={20} />{" "}
         <a

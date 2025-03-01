@@ -3,8 +3,13 @@
 import Image from "next/image";
 import bookIcon from "@/app/assets/images/book_icon.svg";
 import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
+import { BookOpenText } from "lucide-react";
 
-export default function BuyButton() {
+interface IBuyButtonProps {
+  readonly variant?: "light" | "dark";
+}
+
+export default function BuyButton({ variant = "light" }: IBuyButtonProps) {
   const sendEvents = () => {
     sendGAEvent({
       event: "BuyButtonClickedEvent_GA",
@@ -15,22 +20,21 @@ export default function BuyButton() {
       value: "BuyButtonClickedEventValue_GTM",
     });
   };
+  const bgClass =
+    variant === "dark"
+      ? "bg-blueGradient text-blue-100"
+      : "bg-goldenGradient text-secondary";
+
   return (
     <a
       href="https://a.co/d/fWogqk1"
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full sm:w-40 px-6 flex items-center justify-center gap-2 py-2 mt-4 text-secondary bg-goldenGradient border border-background rounded-3xl transition duration-300 hover:scale-105"
+      className={`w-full h-full sm:w-auto px-4 flex items-center justify-center gap-2 py-2 border-background rounded-3xl transition duration-300 hover:scale-105 ${bgClass}`}
       onClick={() => sendEvents()}
     >
       Adquira já
-      <Image
-        width={20}
-        height={20}
-        className="rounded-xl"
-        src={bookIcon}
-        alt="Amazon-logo"
-      />
+      <BookOpenText size={18} />
     </a>
   );
 }
