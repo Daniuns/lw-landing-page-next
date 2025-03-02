@@ -2,6 +2,9 @@ import { IMenuItem } from "@/app/interfaces/menu";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Link from "next/link";
 import BuyButton from "@/app/components/shared/BuyButton";
+import Image, { StaticImageData } from "next/image";
+import bestiaryIcon from "@/app/assets/svgs/bestiary_icon.svg";
+import minotaurIcon from "@/app/assets/svgs/minotaur.svg";
 
 export default function MenuNavigationMobile({
   menuItems,
@@ -10,6 +13,24 @@ export default function MenuNavigationMobile({
   readonly menuItems: IMenuItem[];
   readonly selectedRoute: string;
 }) {
+  const selectIcon = (item: IMenuItem) => {
+    if (item.customIcon) {
+      const srcIcon: { [key: string]: StaticImageData } = {
+        monster: bestiaryIcon,
+        minotaur: minotaurIcon,
+      };
+      return (
+        <Image
+          src={srcIcon[item?.customIcon]}
+          alt={item.title}
+          width={18}
+          height={18}
+          unoptimized
+        />
+      );
+    }
+    return <DynamicIcon name={item.icon} size={18} />;
+  };
   const mountMenu = () => {
     console.log("selectedRoute", selectedRoute);
 
@@ -31,7 +52,7 @@ export default function MenuNavigationMobile({
                   isActive ? "font-bold text-secondary" : "text-[#A9895D]"
                 }`}
               >
-                <DynamicIcon name={item.icon} size={18} />
+                {selectIcon(item)}
               </span>
               <span
                 className={`text-sm ${

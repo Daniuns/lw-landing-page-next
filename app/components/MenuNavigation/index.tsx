@@ -14,22 +14,15 @@ export default function MenuNavigation() {
       icon: "house",
     },
     {
+      title: "Bestiário",
+      route: "/Bestiary",
+      customIcon: "monster",
+    },
+    {
       title: "Sobre",
       route: "/About",
       icon: "info",
     },
-    // {
-    //   title: "Capítulos",
-    //   route: "/capitulos",
-    // },
-    // {
-    //   title: "Personagens",
-    //   route: "/personagens",
-    // },
-    // {
-    //   title: "Contato",
-    //   route: "/contato",
-    // }
   ];
   return (
     <div>

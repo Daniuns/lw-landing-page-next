@@ -1,7 +1,7 @@
 import Image from "next/image";
 import castle from "@/app/assets/images/castle.png";
-import ThemeSection from "./components/Home/ThemeSection";
-import BuyTheBook from "./components/Home/BuyTheBook";
+import ThemeSection from "../components/Home/ThemeSection";
+import BuyTheBook from "../components/Home/BuyTheBook";
 import { GOOGLE_ANALYTICS_ID } from "@/settings";
 
 export default function Home() {
