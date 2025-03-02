@@ -1,5 +1,4 @@
 import { IMenuItem } from "@/app/interfaces/menu";
-import { DynamicIcon } from "lucide-react/dynamic";
 import Link from "next/link";
 import BuyButton from "@/app/components/shared/BuyButton";
 
@@ -20,13 +19,6 @@ export default function MenuNavigationWeb({
       return (
         <Link href={item.route} key={index} className="flex items-center gap-4">
           <div className="flex items-center flex-col">
-            {/* <span
-              className={`flex gap-4 text-secondary ${
-                isActive ? "font-bold" : "font-light"
-              }`}
-            >
-              <DynamicIcon name={item.icon} size={18} />
-            </span> */}
             <span
               className={`text-sm  ${
                 isActive ? "font-bold text-secondary" : "text-[#A9895D]"

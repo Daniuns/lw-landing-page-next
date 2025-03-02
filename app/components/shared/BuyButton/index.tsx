@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import bookIcon from "@/app/assets/images/book_icon.svg";
 import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 import { BookOpenText } from "lucide-react";
 

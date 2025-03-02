@@ -4,8 +4,8 @@ import scroll_bg from "@/app/assets/images/scroll_bg.png";
 import castle from "@/app/assets/images/castle.png";
 import Monster from "@/app/components/Bestiary/Monster";
 import { monstersData } from "@/app/services/monsters";
+
 export default function Bestiary() {
-  console.log("creatures", Object.keys(creatures));
   return (
     <div className="min-h-screen flex items-center justify-center flex-col md:-mt-14">
       <section>
@@ -29,7 +29,7 @@ export default function Bestiary() {
                 data={{
                   name: monster.name,
                   description: monster.description,
-                  src: creatures[monster.src],
+                  src: creatures[monster.src as keyof typeof creatures],
                   alt: monster.name,
                 }}
               />
