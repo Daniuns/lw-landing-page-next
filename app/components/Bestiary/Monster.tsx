@@ -1,5 +1,3 @@
-// component
-
 import Image from "next/image";
 
 export default function Monster({ data }: Readonly<{ data: any }>) {
