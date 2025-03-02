@@ -8,13 +8,11 @@ import { monstersData } from "@/app/services/monsters";
 export default function Bestiary() {
   return (
     <div className="min-h-screen flex items-center justify-center flex-col md:-mt-14">
-      <section>
-        <section className="md:-mt-14">
-          <Image src={bestiary_bg_2} alt="bestiary" />
-        </section>
+      <section className="md:-mt-14 w-full h-auto">
+        <Image className="w-full h-auto" src={bestiary_bg_2} alt="bestiary" />
       </section>
       <section
-        className="p-8 text-gray-900"
+        className="p-8 text-gray-900 w-full"
         style={{
           backgroundImage: `url(${scroll_bg.src})`,
         }}
