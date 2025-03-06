@@ -2,7 +2,7 @@ export const monstersData = [
   {
     name: "Rato gigante",
     description: [
-      `"Um rato, Josh. Conseguiu realmente ser ferido por um ratinho." - Lewis Helderish`,
+      `“Um rato, Josh. Conseguiu realmente ser ferido por um ratinho.” - Lewis Helderish`,
     ],
     src: "big_rat",
   },
@@ -23,9 +23,9 @@ export const monstersData = [
   {
     name: "Grifo",
     description: [
-      `"Dizem que lhe come vivo."
+      `“Dizem que lhe come vivo.”  
       - Mitos do povo`,
-      `"Essas criaturas possuem sua própria hierarquia e são muito leais a seus líderes." 
+      `“Essas criaturas possuem sua própria hierarquia e são muito leais a seus líderes.”  
       - Harold`,
     ],
     src: "grifo",
@@ -41,11 +41,11 @@ export const monstersData = [
   {
     name: "Gigantes",
     description: [
-      `"Eles eram como nós: homens e mulheres."`,
-      `"E por que desapareceram?"`,
-      `"Comiam demais. Faltou comida."`,
-      `"Eram tão grandes assim, vovô?"`,
-      `"Você não consegue imaginar o  quanto."`,
+      `“Eles eram como nós: homens e mulheres.”`,
+      `“E por que desapareceram?”`,
+      `“Comiam demais. Faltou comida.”`,
+      `“Eram tão grandes assim, vovô?”`,
+      `“Você não consegue imaginar o quanto.”`,
     ],
     src: "giant",
   },
@@ -53,7 +53,7 @@ export const monstersData = [
     name: "Terapho",
     description: [
       `Não é a única ameaça em seu ninho.`,
-      `"O túnel da montanha foi tomado por uma aranha rainha, que foi denominada Terapho." 
+      `“O túnel da montanha foi tomado por uma aranha rainha, que foi denominada Terapho.”  
 - Millie Flammae`,
     ],
     src: "terapho",
@@ -61,10 +61,10 @@ export const monstersData = [
   {
     name: "Dragões",
     description: [
-      `"Meu avô dizia que esses monstros poderiam destruir o mundo se quisessem."`,
-      `"Mas são apenas mitos, certo? Afinal, eles nunca existiram, né? "`,
-      `"..."`,
-      `"né!?"`,
+      `“Meu avô dizia que esses monstros poderiam destruir o mundo se quisessem.”`,
+      `“Mas são apenas mitos, certo? Afinal, eles nunca existiram, né?”`,
+      `“...”`,
+      `“né!?”`,
     ],
     src: "dragon",
   },

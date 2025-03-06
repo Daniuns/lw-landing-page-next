@@ -14,7 +14,7 @@ export default function Monster({ data }: Readonly<{ data: any }>) {
           </p>
         ))}
       </div>
-      <div className="block sm:hidden min-w-80 max-w-sm lg:max-w-md h-auto rounded-xl justify-self-start self-start">
+      <div className="block sm:hidden min-w-40 max-w-60 h-auto rounded-xl justify-self-center self-center">
         <Image src={data.src} alt={data.name} className="rounded-xl" />
       </div>
     </div>

@@ -10,8 +10,6 @@ export default function MenuNavigationWeb({
   readonly selectedRoute: string;
 }) {
   const mountMenu = () => {
-    console.log("selectedRoute", selectedRoute);
-
     if (menuItems?.length === 0) return null;
     return menuItems?.map((item, index) => {
       const isActive = selectedRoute === item.route;

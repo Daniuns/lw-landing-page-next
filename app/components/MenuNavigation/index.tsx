@@ -19,6 +19,11 @@ export default function MenuNavigation() {
       customIcon: "monster",
     },
     {
+      title: "Biblioteca",
+      route: "/Library",
+      icon: "square-library",
+    },
+    {
       title: "Sobre",
       route: "/About",
       icon: "info",
