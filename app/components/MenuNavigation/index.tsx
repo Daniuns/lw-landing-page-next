@@ -31,7 +31,7 @@ export default function MenuNavigation() {
   ];
   return (
     <div>
-      <div className="fixed bottom-0 w-full md:hidden">
+      <div className="fixed bottom-0 w-full md:hidden z-10">
         <MenuNavigationMobile
           menuItems={menuItems}
           selectedRoute={selectedRoute}
