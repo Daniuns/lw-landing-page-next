@@ -5,6 +5,7 @@ import Footer from "@/app/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GOOGLE_ANALYTICS_ID } from "@/settings";
 import MenuNavigation from "@/app/components/MenuNavigation";
+import DragonAnimation from "@/app/components/shared/DragonAnimation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased pb-12 pt-0 md:pt-14 md:pb-0`}
       >
+        <DragonAnimation />
         <section className="">
           <MenuNavigation />
         </section>
