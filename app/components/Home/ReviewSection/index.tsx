@@ -10,12 +10,16 @@ import { reviewsData } from "@/app/services/reviews";
 
 export default function ReviewSection() {
   return (
-    <div className="w-full h-auto p-8">
-      <h2>Avaliações direto da Amazon</h2>
+    <div className="w-full">
+      <p className="section-kicker">Leitores recomendam</p>
+      <h2 id="reviews-title">Avaliações de leitores na Amazon</h2>
+      <p className="mb-8 font-sans text-slate-300">
+        Avaliações publicadas com nota máxima.
+      </p>
       <Carousel>
         <CarouselContent>
           {reviewsData.map((review, index) => (
-            <CarouselItem className=" basis-full md:basis-1/3" key={index}>
+            <CarouselItem className="basis-full md:basis-1/3" key={index}>
               <ReviewItem review={review} />
             </CarouselItem>
           ))}

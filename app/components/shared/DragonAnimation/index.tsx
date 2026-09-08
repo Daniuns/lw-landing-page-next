@@ -10,10 +10,6 @@ export default function DragonAnimation() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    window.onbeforeunload = function () {
-      sessionStorage.clear();
-    };
-
     if (alreadyPlayed) return;
     const video = videoRef.current;
 
@@ -29,7 +25,7 @@ export default function DragonAnimation() {
         return () => video.removeEventListener("canplay", handleCanPlay);
       }
     }
-  }, []);
+  }, [alreadyPlayed]);
 
   useEffect(() => {
     if (!alreadyPlayed && showAnimation) {
@@ -47,13 +43,13 @@ export default function DragonAnimation() {
   };
   return (
     <Fragment>
-      {!isLoaded && !alreadyPlayed && (
-        <div className="flex items-center justify-center w-screen h-screen bg-black">
-          <h1 className="text-white text-2xl">Loading...</h1>
+      {!isLoaded && !alreadyPlayed && showAnimation && (
+        <div className="fixed inset-0 z-30 flex items-center justify-center bg-background">
+          <p className="text-lightGolden">Preparando sua aventura...</p>
         </div>
       )}
       {showAnimation && !alreadyPlayed && (
-        <section className="md:-mt-14 absolute w-screen h-screen z-20">
+        <section className={`fixed inset-0 z-20 ${isLoaded ? "" : "invisible"}`}>
           <video
             ref={videoRef}
             src={"videos/dragon_animation.mp4"}
@@ -62,7 +58,15 @@ export default function DragonAnimation() {
             muted
             playsInline
             onEnded={onEnded}
+            onError={onEnded}
           />
+          <button
+            type="button"
+            onClick={onEnded}
+            className="absolute right-5 top-5 rounded-full border border-lightGolden/80 bg-background/70 px-4 py-2 text-sm text-lightGolden backdrop-blur transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lightGolden"
+          >
+            Pular introdução
+          </button>
         </section>
       )}
     </Fragment>

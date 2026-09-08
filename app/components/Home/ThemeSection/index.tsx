@@ -1,22 +1,26 @@
 import ThemeSectionItem from "./ThemeSectionItem";
+import { Flame, Sparkles, Sword } from "lucide-react";
 
 export default function ThemeSection() {
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-3 place-items-center">
       <ThemeSectionItem
         title="Aventura"
-        subTitle="Uma aventura épica"
-        description="Em uma terra desolada pela destruição, Lewis Helderish busca encontrar uma forma de entender o que aconteceu com seu mundo"
+        subTitle="Uma jornada épica"
+        description="Um caçador inexperiente, um reino em risco e uma guerra que não permite erros."
+        icon={<Sword />}
       />
       <ThemeSectionItem
         title="Magias"
-        subTitle="Sistema de magias único inspirado em RPGs"
-        description="Magias elementais e magias sagradas. E talvez... algo a mais (No Spoilers)"
+        subTitle="Magia inspirada em RPGs"
+        description="Magias elementais, poderes sagrados e segredos que é melhor descobrir lendo."
+        icon={<Sparkles />}
       />
       <ThemeSectionItem
         title="Monstros"
-        subTitle="Criaturas de diversas mitologias"
-        description="Monstros de diversas mitologias, como também criaturas originais"
+        subTitle="Criaturas e mitologias"
+        description="Enfrente criaturas de lendas conhecidas e monstros originais deste universo."
+        icon={<Flame />}
       />
     </div>
   );

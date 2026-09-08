@@ -38,7 +38,7 @@ export default function MenuNavigation() {
         />
       </div>
 
-      <div className="absolute top-4 justify-center hidden md:flex w-full">
+      <div className="absolute top-4 justify-center hidden md:flex w-full z-10">
         <MenuNavigationWeb
           menuItems={menuItems}
           selectedRoute={selectedRoute}

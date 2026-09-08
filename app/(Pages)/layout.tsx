@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
 import Footer from "@/app/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -7,22 +6,13 @@ import { GOOGLE_ANALYTICS_ID } from "@/settings";
 import MenuNavigation from "@/app/components/MenuNavigation";
 import DragonAnimation from "@/app/components/shared/DragonAnimation";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "Lewis Helderish A batalha pelo pergaminho",
   description:
     "Uma jornada épica de ação, magia e monstros! Conheça Lewis Helderish e embarque nessa aventura inesquecível.",
   keywords:
     "Lewis Helderish, Livro, Aventura, Magia, Monstros, Daniel Machado Ferreira",
+  metadataBase: new URL("https://lewis-helderish.vercel.app"),
   icons: {
     icon: "https://lewis-helderish.vercel.app/favicon.ico",
   },
@@ -33,10 +23,10 @@ export const metadata: Metadata = {
     siteName: "Lewis Helderish",
     images: [
       {
-        url: "https://lewis-helderish.vercel.app/new-book-cover.png",
-        width: 1200,
-        height: 630,
-        alt: "Imagem da landing page",
+        url: "/new-book-cover.png",
+        width: 1414,
+        height: 2000,
+        alt: "Capa de Lewis Helderish: A batalha pelo pergaminho",
       },
     ],
     type: "website",
@@ -49,22 +39,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <script type="application/ld+json">
-          {`
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://lewis-helderish.vercel.app",
-      "logo": "https://lewis-helderish.vercel.app/new-book-cover.png"
-    }
-  `}
+          {`{"@context":"https://schema.org","@type":"Book","name":"Lewis Helderish: A batalha pelo pergaminho","author":{"@type":"Person","name":"Daniel Machado Ferreira"},"inLanguage":"pt-BR","image":"https://lewis-helderish.vercel.app/new-book-cover.png","url":"https://lewis-helderish.vercel.app"}`}
         </script>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased pb-12 pt-0 md:pt-14 md:pb-0`}
-      >
+      <body className="antialiased pb-20 pt-0 md:pb-0 ">
         <DragonAnimation />
         <section className="">
           <MenuNavigation />

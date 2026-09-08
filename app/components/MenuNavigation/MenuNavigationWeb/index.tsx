@@ -36,8 +36,8 @@ export default function MenuNavigationWeb({
       <div className="flex justify-between items-center w-full ">
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-6">{mountMenu()}</div>
-          <div className="w-auto h-8">
-            <BuyButton variant="dark" />
+          <div className="w-auto">
+            <BuyButton variant="dark" label="Comprar" source="desktop_navigation" />
           </div>
         </div>
       </div>

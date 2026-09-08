@@ -1,0 +1,128 @@
+.entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(1.75rem, 5vw, 5rem);
+  align-items: center;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 6rem);
+  border-top: 1px solid rgba(63, 39, 20, 0.26);
+  color: #32200f;
+}
+.entryReversed .illustration {
+  order: 2;
+}
+.entryReversed .details {
+  order: 1;
+}
+.volume {
+  position: absolute;
+  top: 1.2rem;
+  right: clamp(1.25rem, 5vw, 5rem);
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 0.8;
+  color: rgba(76, 47, 22, 0.11);
+  user-select: none;
+}
+.illustration {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: clamp(245px, 29vw, 390px);
+  place-items: center;
+  text-align: center;
+}
+.image {
+  position: relative;
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  filter: sepia(0.18) saturate(0.86) contrast(1.04)
+    drop-shadow(5px 10px 7px rgba(55, 32, 13, 0.22));
+}
+.details {
+  position: relative;
+  z-index: 1;
+  max-width: 39rem;
+}
+.catalogue,
+.label {
+  margin: 0;
+  color: #78502b;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+.title {
+  margin: 0.35rem 0 0;
+  color: #33200e;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 0.95;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: min(100%, 19rem);
+  margin: 1.25rem 0 1.35rem;
+  color: #71461f;
+}
+.divider::before,
+.divider::after {
+  height: 1px;
+  flex: 1;
+  content: "";
+  background: currentColor;
+}
+.divider span {
+  font-size: 0.75rem;
+}
+.description {
+  margin-top: 0.75rem;
+}
+.description p {
+  margin: 0 0 1rem;
+  white-space: pre-line;
+  font-family: "IM Fell English", Georgia, serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+  font-style: italic;
+  line-height: 1.48;
+}
+@media (max-width: 767px) {
+  .entry {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 1.25rem;
+  }
+  .entryReversed .illustration {
+    order: 2;
+  }
+  .entryReversed .details {
+    order: 1;
+  }
+  .volume {
+    top: 1.05rem;
+    right: 1.25rem;
+    font-size: 3.5rem;
+  }
+  .details {
+    order: 1;
+    padding-right: 4.75rem;
+  }
+  .catalogue {
+    display: none;
+  }
+  .title {
+    margin-top: 0;
+  }
+  .illustration {
+    order: 2;
+    min-height: 220px;
+  }
+  .image {
+    width: min(100%, 22rem);
+    max-height: 300px;
+  }
+}

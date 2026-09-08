@@ -4,40 +4,58 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
-  /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: "IM Fell English", serif;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--foreground);
 }
 
 h1 {
+  font-family: "IM Fell English", serif;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 h2 {
+  font-family: "IM Fell English", serif;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 h3 {
+  font-family: "IM Fell English", serif;
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 h4 {
+  font-family: "IM Fell English", serif;
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 h5 {
+  font-family: "IM Fell English", serif;
   font-size: 0.875rem;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+
+.section-kicker {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lightGolden);
 }
 
 @layer base {

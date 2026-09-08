@@ -1,22 +1,59 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import styles from "./bestiary.module.css";
 
-export default function Monster({ data }: Readonly<{ data: any }>) {
+type MonsterData = {
+  name: string;
+  description: string[];
+  src: StaticImageData;
+  alt: string;
+};
+
+type MonsterProps = { data: MonsterData; index: number };
+
+export default function Monster({ data, index }: Readonly<MonsterProps>) {
+  const registryNumber = String(index + 1).padStart(2, "0");
+  const isReversed = index % 2 !== 0;
+
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-      <div className="hidden sm:block min-w-80 max-w-sm lg:max-w-md h-auto rounded-xl justify-self-end self-end">
-        <Image src={data.src} alt={data.name} className="rounded-xl" />
+    <article
+      className={`${styles.entry} ${isReversed ? styles.entryReversed : ""}`}
+    >
+      <div className={styles.entryNumber} aria-hidden="true">
+        {registryNumber}
       </div>
-      <div className="justify-self-start self-start max-w-sm text-gray-900">
-        <h2 className="font-bold">{data.name}</h2>
-        {data.description.map((desc: string, index: number) => (
-          <p key={index} className="mt-4 text-lg">
-            {desc}
+      <div className={styles.illustrationPanel}>
+        <div className={styles.imageFrame}>
+          <Image
+            src={data.src}
+            alt={data.alt}
+            className={styles.creatureImage}
+            sizes="(max-width: 767px) 78vw, (max-width: 1200px) 40vw, 440px"
+          />
+        </div>
+      </div>
+      <div className={styles.notesPanel}>
+        <div className={styles.notesHeader}>
+          <p className={styles.registry}>
+            Registro de criatura · {registryNumber}
           </p>
-        ))}
+          <h2 className={styles.name}>{data.name}</h2>
+          <div className={styles.rule} aria-hidden="true">
+            <span />
+          </div>
+        </div>
+        <div className={styles.notesDetails}>
+          <p className={styles.noteLabel}>Observações</p>
+          <div className={styles.description}>
+            {data.description.map((desc, descriptionIndex) => (
+              <p key={descriptionIndex}>{desc}</p>
+            ))}
+          </div>
+          <div className={styles.warning}>
+            <span aria-hidden="true">✦</span>
+            <p>Manuseie este registro com cautela.</p>
+          </div>
+        </div>
       </div>
-      <div className="block sm:hidden min-w-40 max-w-60 h-auto rounded-xl justify-self-center self-center">
-        <Image src={data.src} alt={data.name} className="rounded-xl" />
-      </div>
-    </div>
+    </article>
   );
 }

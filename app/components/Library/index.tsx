@@ -1,22 +1,50 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import styles from "./library.module.css";
 
-export default function Library({ data }: Readonly<{ data: any }>) {
+type LibraryData = {
+  name: string;
+  description: string[];
+  src: StaticImageData;
+  alt: string;
+};
+
+type LibraryItemProps = { data: LibraryData; index: number };
+
+export default function LibraryItem({
+  data,
+  index,
+}: Readonly<LibraryItemProps>) {
+  const volumeNumber = String(index + 1).padStart(2, "0");
+  const isReversed = index % 2 !== 0;
+
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-      <div className="hidden sm:block min-w-20 max-w-80 lg:max-w-60 h-auto rounded-xl justify-self-end self-end">
-        <Image src={data.src} alt={data.name} className="rounded-xl" />
+    <article
+      className={`${styles.entry} ${isReversed ? styles.entryReversed : ""}`}
+    >
+      <div className={styles.volume} aria-hidden="true">
+        {volumeNumber}
       </div>
-      <div className="justify-self-start self-start max-w-sm text-gray-900">
-        <h2 className="font-bold">{data.name}</h2>
-        {data.description.map((desc: string, index: number) => (
-          <p key={index} className="mt-4 text-lg">
-            {desc}
-          </p>
-        ))}
+      <div className={styles.illustration}>
+        <Image
+          src={data.src}
+          alt={data.alt}
+          className={styles.image}
+          sizes="(max-width: 767px) 72vw, (max-width: 1200px) 32vw, 350px"
+        />
       </div>
-      <div className="block sm:hidden min-w-40 max-w-40 h-auto rounded-xl justify-self-center self-center">
-        <Image src={data.src} alt={data.name} className="rounded-xl" />
+      <div className={styles.details}>
+        <p className={styles.catalogue}>Acervo · tomo {volumeNumber}</p>
+        <h2 className={styles.title}>{data.name}</h2>
+        <div className={styles.divider} aria-hidden="true">
+          <span>✦</span>
+        </div>
+        <p className={styles.label}>Trecho preservado</p>
+        <div className={styles.description}>
+          {data.description.map((paragraph, paragraphIndex) => (
+            <p key={paragraphIndex}>{paragraph}</p>
+          ))}
+        </div>
       </div>
-    </div>
+    </article>
   );
 }
