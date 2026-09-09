@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import Footer from "@/app/components/Footer";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { GOOGLE_ANALYTICS_ID } from "@/settings";
+import {
+  GOOGLE_ANALYTICS_ID,
+  GOOGLE_TAG_MANAGER_ID,
+} from "@/settings";
 import MenuNavigation from "@/app/components/MenuNavigation";
 import DragonAnimation from "@/app/components/shared/DragonAnimation";
+import AnalyticsConsent from "@/app/components/analytics/AnalyticsConsent";
 
 export const metadata: Metadata = {
   title: "Lewis Helderish A batalha pelo pergaminho",
@@ -46,16 +49,20 @@ export default function RootLayout({
         </script>
       </head>
       <body className="antialiased pb-20 pt-0 md:pb-0 ">
-        <DragonAnimation />
-        <section className="">
-          <MenuNavigation />
-        </section>
-        {children}
-        <section className="bg-goldenGradient min-h-80 p-8">
-          <Footer />
-        </section>
+        <AnalyticsConsent
+          googleAnalyticsId={GOOGLE_ANALYTICS_ID}
+          googleTagManagerId={GOOGLE_TAG_MANAGER_ID}
+        >
+          <DragonAnimation />
+          <section className="">
+            <MenuNavigation />
+          </section>
+          {children}
+          <section className="bg-goldenGradient min-h-80 p-8">
+            <Footer />
+          </section>
+        </AnalyticsConsent>
       </body>
-      <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
     </html>
   );
 }

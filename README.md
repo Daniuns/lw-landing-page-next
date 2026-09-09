@@ -16,6 +16,26 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Analytics
+
+O site rastreia apenas eventos de navegação e interação, sem dados pessoais:
+
+- `buy_click`: CTA de compra, com `button_id` (`hero`, `synopsis`, `final_cta`, `desktop_navigation` ou `mobile_navigation`), rótulo e página.
+- `navigation_click`: item do menu e página de destino.
+- `social_link_click`: clique nos links de Instagram ou TikTok.
+- `scroll_depth`: marcos de 25%, 50%, 75% e 100% em cada página.
+- `page_bottom_reached`: chegou ao fim da página.
+- `page_view`: navegações internas entre páginas no App Router. A primeira visualização é enviada automaticamente pelo GA4.
+
+Copie `.env.example` para `.env.local` e informe **uma** das integrações:
+
+- `GOOGLE_ANALYTICS_ID`: ID de medição do GA4 (`G-...`). Os eventos aparecem diretamente no GA4.
+- `GOOGLE_TAG_MANAGER_ID`: ID do container GTM (`GTM-...`). No GTM, crie gatilhos de *Custom Event* para os nomes acima e envie-os à sua tag do GA4.
+
+É possível informar ambas, mas não configure no GTM uma tag GA4 que replique os mesmos eventos enviados pela integração direta; isso duplicaria os dados. Para produção, configure também consentimento de cookies/LGPD antes de ativar as tags.
+
+O banner de consentimento já faz esse bloqueio: as tags e eventos analíticos só são carregados após **Aceitar analytics**. A decisão fica salva no navegador; o botão **Cookies**, no canto inferior, permite revisar e revogar a preferência.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

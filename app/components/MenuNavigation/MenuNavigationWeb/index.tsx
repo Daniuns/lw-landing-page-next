@@ -1,6 +1,9 @@
+"use client";
+
 import { IMenuItem } from "@/app/interfaces/menu";
 import Link from "next/link";
 import BuyButton from "@/app/components/shared/BuyButton";
+import { useAnalytics } from "@/app/components/analytics/AnalyticsProvider";
 
 export default function MenuNavigationWeb({
   menuItems,
@@ -9,13 +12,27 @@ export default function MenuNavigationWeb({
   readonly menuItems: IMenuItem[];
   readonly selectedRoute: string;
 }) {
+  const { trackEvent } = useAnalytics();
+
   const mountMenu = () => {
     if (menuItems?.length === 0) return null;
     return menuItems?.map((item, index) => {
       const isActive = selectedRoute === item.route;
 
       return (
-        <Link href={item.route} key={index} className="flex items-center gap-4">
+        <Link
+          href={item.route}
+          key={index}
+          className="flex items-center gap-4"
+          onClick={() =>
+            trackEvent("navigation_click", {
+              navigation_item: item.title,
+              navigation_location: "desktop_menu",
+              destination_path: item.route,
+              page_path: window.location.pathname,
+            })
+          }
+        >
           <div className="flex items-center flex-col">
             <span
               className={`text-sm  ${

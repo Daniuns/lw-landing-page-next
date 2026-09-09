@@ -1,7 +1,7 @@
 "use client";
 
-import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 import { BookOpenText } from "lucide-react";
+import { useAnalytics } from "@/app/components/analytics/AnalyticsProvider";
 
 interface IBuyButtonProps {
   readonly variant?: "light" | "dark";
@@ -16,16 +16,15 @@ export default function BuyButton({
   source = "unknown",
   className = "",
 }: IBuyButtonProps) {
+  const { trackEvent } = useAnalytics();
+
   const sendEvents = () => {
-    sendGAEvent({
-      event: "select_content",
-      content_type: "book_purchase_cta",
+    trackEvent("buy_click", {
+      button_id: source,
+      button_label: label || "Comprar",
+      page_path: window.location.pathname,
+      destination: "amazon",
       item_id: "lewis-helderish-a-batalha-pelo-pergaminho",
-      source,
-    });
-    sendGTMEvent({
-      event: "book_purchase_cta_clicked",
-      source,
     });
   };
   const bgClass =

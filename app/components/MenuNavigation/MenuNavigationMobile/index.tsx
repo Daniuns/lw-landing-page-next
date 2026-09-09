@@ -1,3 +1,5 @@
+"use client";
+
 import { IMenuItem } from "@/app/interfaces/menu";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Link from "next/link";
@@ -5,6 +7,7 @@ import BuyButton from "@/app/components/shared/BuyButton";
 import Image, { StaticImageData } from "next/image";
 import bestiaryIcon from "@/app/assets/svgs/bestiary_icon.svg";
 import minotaurIcon from "@/app/assets/svgs/minotaur.svg";
+import { useAnalytics } from "@/app/components/analytics/AnalyticsProvider";
 
 export default function MenuNavigationMobile({
   menuItems,
@@ -13,6 +16,8 @@ export default function MenuNavigationMobile({
   readonly menuItems: IMenuItem[];
   readonly selectedRoute: string;
 }) {
+  const { trackEvent } = useAnalytics();
+
   const selectIcon = (item: IMenuItem) => {
     if (item.customIcon) {
       const srcIcon: { [key: string]: StaticImageData } = {
@@ -37,7 +42,19 @@ export default function MenuNavigationMobile({
       const isActive = selectedRoute === item.route;
 
       return (
-        <Link href={item.route} key={index} className="flex items-center gap-2">
+        <Link
+          href={item.route}
+          key={index}
+          className="flex items-center gap-2"
+          onClick={() =>
+            trackEvent("navigation_click", {
+              navigation_item: item.title,
+              navigation_location: "mobile_menu",
+              destination_path: item.route,
+              page_path: window.location.pathname,
+            })
+          }
+        >
           <div className="flex items-center flex-col">
             <span
               className={`flex gap-4 ${
