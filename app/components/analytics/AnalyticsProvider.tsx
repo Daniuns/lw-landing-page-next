@@ -31,10 +31,13 @@ export function AnalyticsProvider({
 }>) {
   const trackEvent = useCallback(
     (event: string, parameters: EventParameters = {}) => {
-      const payload = { event, ...parameters };
+      if (config.gaEnabled) {
+        sendGAEvent("event", event, parameters);
+      }
 
-      if (config.gaEnabled) sendGAEvent(payload);
-      if (config.gtmEnabled) sendGTMEvent(payload);
+      if (config.gtmEnabled) {
+        sendGTMEvent({ event, ...parameters });
+      }
     },
     [config.gaEnabled, config.gtmEnabled],
   );
