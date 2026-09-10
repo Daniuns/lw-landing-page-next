@@ -7,3 +7,8 @@ export const GOOGLE_TAG_MANAGER_ID =
   process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID ??
   process.env.GOOGLE_TAG_MANAGER_ID ??
   "";
+
+export const MICROSOFT_CLARITY_PROJECT_ID =
+  process.env.NEXT_PUBLIC_MICROSOFT_CLARITY_PROJECT_ID ??
+  process.env.MICROSOFT_CLARITY_PROJECT_ID ??
+  "";

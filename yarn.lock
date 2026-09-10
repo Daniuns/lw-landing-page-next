@@ -315,6 +315,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@microsoft/clarity@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@microsoft/clarity/-/clarity-1.0.2.tgz#9d95c81c3d6976229aa81e296362c6eae55f262d"
+  integrity sha512-9EZYROFpJxEGmQpHvUFqvD3ZJ7QQSqnibYSWmS+1xusoZfG1QQ1/Al9yVBBc11DWMbJrs1pe1hLT273it/skJg==
+
 "@next/env@15.5.25":
   version "15.5.25"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-15.5.25.tgz#bf7e5afd0f186a7d3d77e5d1ac8bb4a68b348220"

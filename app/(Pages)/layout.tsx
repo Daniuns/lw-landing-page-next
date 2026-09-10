@@ -4,6 +4,7 @@ import Footer from "@/app/components/Footer";
 import {
   GOOGLE_ANALYTICS_ID,
   GOOGLE_TAG_MANAGER_ID,
+  MICROSOFT_CLARITY_PROJECT_ID,
 } from "@/settings";
 import MenuNavigation from "@/app/components/MenuNavigation";
 import DragonAnimation from "@/app/components/shared/DragonAnimation";
@@ -52,6 +53,7 @@ export default function RootLayout({
         <AnalyticsConsent
           googleAnalyticsId={GOOGLE_ANALYTICS_ID}
           googleTagManagerId={GOOGLE_TAG_MANAGER_ID}
+          microsoftClarityProjectId={MICROSOFT_CLARITY_PROJECT_ID}
         >
           <DragonAnimation />
           <section className="">

@@ -1,6 +1,7 @@
 "use client";
 
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Clarity from "@microsoft/clarity";
 import { useEffect, useState, type ReactNode } from "react";
 import { AnalyticsProvider } from "./AnalyticsProvider";
 import NavigationAndScrollTracker from "./NavigationAndScrollTracker";
@@ -13,7 +14,11 @@ function clearAnalyticsCookies() {
   document.cookie.split(";").forEach((cookie) => {
     const name = cookie.trim().split("=")[0];
 
-    if (name.startsWith("_ga")) {
+    if (
+      name.startsWith("_ga") ||
+      name === "_clck" ||
+      name === "_clsk"
+    ) {
       document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
     }
   });
@@ -23,10 +28,12 @@ export default function AnalyticsConsent({
   children,
   googleAnalyticsId,
   googleTagManagerId,
+  microsoftClarityProjectId,
 }: Readonly<{
   children: ReactNode;
   googleAnalyticsId: string;
   googleTagManagerId: string;
+  microsoftClarityProjectId: string;
 }>) {
   const [consent, setConsent] = useState<ConsentStatus>(null);
   const [hasLoadedPreference, setHasLoadedPreference] = useState(false);
@@ -45,23 +52,46 @@ export default function AnalyticsConsent({
     setConsent(nextConsent);
 
     if (nextConsent === "rejected") {
-      clearAnalyticsCookies();
-      window.dataLayer?.push([
-        "consent",
-        "update",
-        { analytics_storage: "denied" },
-      ]);
+      revokeAnalyticsConsent();
     }
+  };
+
+  const revokeAnalyticsConsent = () => {
+    clearAnalyticsCookies();
+    window.dataLayer?.push([
+      "consent",
+      "update",
+      { analytics_storage: "denied" },
+    ]);
   };
 
   const openPreferences = () => {
     window.localStorage.removeItem(CONSENT_STORAGE_KEY);
+    revokeAnalyticsConsent();
     setConsent(null);
   };
 
   const canTrack = consent === "accepted";
+
+  useEffect(() => {
+    if (!canTrack || !microsoftClarityProjectId) return;
+
+    Clarity.init(microsoftClarityProjectId);
+    Clarity.consentV2({
+      ad_Storage: "denied",
+      analytics_Storage: "granted",
+    });
+
+    return () => {
+      Clarity.consentV2({
+        ad_Storage: "denied",
+        analytics_Storage: "denied",
+      });
+    };
+  }, [canTrack, microsoftClarityProjectId]);
+
   const hasAnalyticsIntegration = Boolean(
-    googleAnalyticsId || googleTagManagerId,
+    googleAnalyticsId || googleTagManagerId || microsoftClarityProjectId,
   );
 
   return (

@@ -31,10 +31,11 @@ Copie `.env.example` para `.env.local` e informe **uma** das integrações:
 
 - `GOOGLE_ANALYTICS_ID`: ID de medição do GA4 (`G-...`). Os eventos aparecem diretamente no GA4.
 - `GOOGLE_TAG_MANAGER_ID`: ID do container GTM (`GTM-...`). No GTM, crie gatilhos de *Custom Event* para os nomes acima e envie-os à sua tag do GA4.
+- `MICROSOFT_CLARITY_PROJECT_ID`: ID do projeto Microsoft Clarity. Após o consentimento, habilita gravações de sessão e heatmaps no [painel do Clarity](https://clarity.microsoft.com/).
 
 É possível informar ambas, mas não configure no GTM uma tag GA4 que replique os mesmos eventos enviados pela integração direta; isso duplicaria os dados. Para produção, configure também consentimento de cookies/LGPD antes de ativar as tags.
 
-O banner de consentimento já faz esse bloqueio: as tags e eventos analíticos só são carregados após **Aceitar analytics**. A decisão fica salva no navegador; o botão **Cookies**, no canto inferior, permite revisar e revogar a preferência.
+O banner de consentimento já faz esse bloqueio: as tags, eventos analíticos e Clarity só são carregados após **Aceitar analytics**. A decisão fica salva no navegador; o botão **Cookies**, no canto inferior, permite revisar e revogar a preferência.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
