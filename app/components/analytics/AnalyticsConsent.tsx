@@ -14,11 +14,7 @@ function clearAnalyticsCookies() {
   document.cookie.split(";").forEach((cookie) => {
     const name = cookie.trim().split("=")[0];
 
-    if (
-      name.startsWith("_ga") ||
-      name === "_clck" ||
-      name === "_clsk"
-    ) {
+    if (name.startsWith("_ga")) {
       document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
     }
   });
@@ -71,24 +67,17 @@ export default function AnalyticsConsent({
     setConsent(null);
   };
 
-  const canTrack = consent === "accepted";
-
   useEffect(() => {
-    if (!canTrack || !microsoftClarityProjectId) return;
+    if (!microsoftClarityProjectId) return;
 
     Clarity.init(microsoftClarityProjectId);
     Clarity.consentV2({
       ad_Storage: "denied",
       analytics_Storage: "granted",
     });
+  }, [microsoftClarityProjectId]);
 
-    return () => {
-      Clarity.consentV2({
-        ad_Storage: "denied",
-        analytics_Storage: "denied",
-      });
-    };
-  }, [canTrack, microsoftClarityProjectId]);
+  const canTrack = consent === "accepted";
 
   const hasAnalyticsIntegration = Boolean(
     googleAnalyticsId || googleTagManagerId || microsoftClarityProjectId,
@@ -137,14 +126,14 @@ export default function AnalyticsConsent({
               onClick={() => saveConsent("rejected")}
               className="min-h-11 rounded-full border border-lightGolden/60 px-5 py-2 text-sm font-semibold text-lightGolden transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lightGolden"
             >
-              Recusar analytics
+              Recusar cookies
             </button>
             <button
               type="button"
               onClick={() => saveConsent("accepted")}
               className="min-h-11 rounded-full bg-goldenGradient px-5 py-2 text-sm font-semibold text-secondary transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lightGolden"
             >
-              Aceitar analytics
+              Aceitar cookies
             </button>
           </div>
         </aside>
