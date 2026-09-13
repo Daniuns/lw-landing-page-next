@@ -55,6 +55,10 @@ export default function Library() {
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#58351c] md:text-base">
             Cidades, feitiços e artefatos que ajudam a contar a história deste
             mundo.
+            <br />
+            <br />
+            (Nossa biblioteca está em manutenção, em breve atualizaremos as
+            ilustrações que a compoem.)
           </p>
         </header>
         <div>

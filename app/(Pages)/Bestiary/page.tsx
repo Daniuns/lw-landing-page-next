@@ -1,7 +1,8 @@
 import * as creatures from "@/app/assets/images/bestiary";
 import Image from "next/image";
 import scrollBg from "@/app/assets/images/scroll_bg.png";
-import bestiaryBg from "@/app/assets/images/bestiary_bg_3.jpg";
+import bestiaryBg from "@/app/assets/images/bestiary_bg.png";
+import bestiaryBgMobile from "@/app/assets/images/bestiary_bg_mobile.png";
 import Monster from "@/app/components/Bestiary";
 import { monstersData } from "@/app/services/monsters";
 
@@ -10,12 +11,20 @@ export default function Bestiary() {
     <main className="overflow-hidden bg-[#172228] pb-10 md:-mt-14">
       <section className="relative isolate min-h-[370px] overflow-hidden border-b-4 border-[#8e6031] md:min-h-[480px]">
         <Image
+          src={bestiaryBgMobile}
+          alt=""
+          priority
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-80 md:hidden"
+        />
+        <Image
           src={bestiaryBg}
           alt=""
           priority
           fill
           sizes="100vw"
-          className="object-cover object-center opacity-80"
+          className="hidden object-cover object-center opacity-80 md:block"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#10181d]/30 via-[#10181d]/45 to-[#111a1e]" />
         <div className="relative mx-auto flex min-h-[370px] max-w-6xl flex-col justify-end px-6 pb-12 text-center md:min-h-[480px] md:pb-16">
