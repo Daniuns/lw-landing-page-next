@@ -33,6 +33,7 @@ export default function AnalyticsConsent({
 }>) {
   const [consent, setConsent] = useState<ConsentStatus>(null);
   const [hasLoadedPreference, setHasLoadedPreference] = useState(false);
+  const [isBannerOpen, setIsBannerOpen] = useState(false);
 
   useEffect(() => {
     const savedConsent = window.localStorage.getItem(CONSENT_STORAGE_KEY);
@@ -46,6 +47,7 @@ export default function AnalyticsConsent({
   const saveConsent = (nextConsent: Exclude<ConsentStatus, null>) => {
     window.localStorage.setItem(CONSENT_STORAGE_KEY, nextConsent);
     setConsent(nextConsent);
+    setIsBannerOpen(false);
 
     if (nextConsent === "rejected") {
       revokeAnalyticsConsent();
@@ -65,6 +67,7 @@ export default function AnalyticsConsent({
     window.localStorage.removeItem(CONSENT_STORAGE_KEY);
     revokeAnalyticsConsent();
     setConsent(null);
+    setIsBannerOpen(true);
   };
 
   useEffect(() => {
@@ -100,7 +103,7 @@ export default function AnalyticsConsent({
         <GoogleTagManager gtmId={googleTagManagerId} />
       )}
 
-      {hasLoadedPreference && hasAnalyticsIntegration && consent === null && (
+      {hasLoadedPreference && hasAnalyticsIntegration && isBannerOpen && (
         <aside
           className="fixed inset-x-3 bottom-16 z-50 mx-auto max-w-2xl rounded-xl border border-lightGolden/40 bg-gray-800 p-5 text-slate-100 shadow-2xl md:bottom-5"
           aria-labelledby="cookie-banner-title"
@@ -139,7 +142,7 @@ export default function AnalyticsConsent({
         </aside>
       )}
 
-      {hasLoadedPreference && hasAnalyticsIntegration && consent !== null && (
+      {hasLoadedPreference && hasAnalyticsIntegration && !isBannerOpen && (
         <button
           type="button"
           onClick={openPreferences}
