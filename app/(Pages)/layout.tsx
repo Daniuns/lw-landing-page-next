@@ -8,6 +8,7 @@ import {
 } from "@/settings";
 import MenuNavigation from "@/app/components/MenuNavigation";
 import DragonAnimation from "@/app/components/shared/DragonAnimation";
+import BackToTop from "@/app/components/shared/BackToTop";
 import AnalyticsConsent from "@/app/components/analytics/AnalyticsConsent";
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export default function RootLayout({
             <MenuNavigation />
           </section>
           {children}
+          <BackToTop />
           <section className="bg-goldenGradient min-h-80 p-8">
             <Footer />
           </section>

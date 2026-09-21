@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, Star } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Star } from "lucide-react";
 import castle from "@/app/assets/images/castle.png";
 import bookCover from "@/app/assets/images/new-book-cover.png";
 import author from "@/app/assets/images/author.png";
+import bestiaryBg from "@/app/assets/images/bestiary_bg.png";
+import libraryBg from "@/app/assets/images/library.jpg";
 import ThemeSection from "../components/Home/ThemeSection";
 import BuyTheBook from "../components/Home/BuyTheBook";
 import ReviewSection from "@/app/components/Home/ReviewSection";
@@ -106,6 +108,83 @@ export default function Home() {
         className="mx-auto w-full max-w-7xl px-6 py-20 md:px-10"
       >
         <BuyTheBook />
+      </section>
+      <section
+        className="border-y border-white/10 bg-[#101a20] py-20"
+        aria-labelledby="explore-title"
+      >
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
+          <div className="mb-10 max-w-2xl">
+            <p className="section-kicker">Além das páginas</p>
+            <h2 id="explore-title" className="text-3xl md:text-4xl">
+              Explore os segredos deste universo
+            </h2>
+            <p className="mt-3 text-slate-300">
+              Criaturas, lugares e magia esperam por você nos registros de Lewis
+              Helderish. Por onde sua curiosidade vai começar?
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Link
+              href="/Bestiary"
+              className="group overflow-hidden rounded-2xl border border-lightGolden/20 bg-[#172228] transition hover:-translate-y-1 hover:border-lightGolden/60 hover:shadow-[0_18px_40px_rgba(0,0,0,.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lightGolden"
+            >
+              <div className="relative h-52 overflow-hidden sm:h-60">
+                <Image
+                  src={bestiaryBg}
+                  alt=""
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-center transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-xs font-bold uppercase tracking-[.18em] text-lightGolden">
+                  Bestiário
+                </p>
+                <h3 className="mt-2 text-2xl text-white">
+                  O que espreita além das muralhas?
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+                  Descubra os relatos das criaturas que cruzam o caminho de
+                  Lewis. Talvez seja melhor conhecer algumas delas só pelo nome.
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 font-semibold text-lightGolden group-hover:underline group-hover:underline-offset-4">
+                  Explorar o Bestiário <ArrowUpRight size={18} aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
+            <Link
+              href="/Library"
+              className="group overflow-hidden rounded-2xl border border-lightGolden/20 bg-[#172228] transition hover:-translate-y-1 hover:border-lightGolden/60 hover:shadow-[0_18px_40px_rgba(0,0,0,.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lightGolden"
+            >
+              <div className="relative h-52 overflow-hidden sm:h-60">
+                <Image
+                  src={libraryBg}
+                  alt=""
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-center transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-xs font-bold uppercase tracking-[.18em] text-lightGolden">
+                  Biblioteca
+                </p>
+                <h3 className="mt-2 text-2xl text-white">
+                  Que segredos sobreviveram nas páginas?
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+                  Entre no acervo de cidades, feitiços e pergaminhos. Cada
+                  registro revela um pouco mais sobre este mundo.
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 font-semibold text-lightGolden group-hover:underline group-hover:underline-offset-4">
+                  Entrar na Biblioteca <ArrowUpRight size={18} aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
       </section>
       <section className="bg-goldenGradient py-16 text-secondary">
         <div className="mx-auto grid max-w-5xl items-center gap-8 px-6 md:grid-cols-[180px_1fr_auto] md:px-10">
