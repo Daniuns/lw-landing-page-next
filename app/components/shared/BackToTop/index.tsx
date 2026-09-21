@@ -36,7 +36,7 @@ export default function BackToTop() {
       onClick={scrollToTop}
       aria-label="Voltar ao início da página"
       title="Voltar ao início"
-      className="fixed bottom-20 right-4 z-30 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#172228] bg-lightGolden text-[#172228] shadow-[0_0_0_3px_rgba(13,25,30,.85)] transition hover:-translate-y-1 hover:bg-[#dfbd8b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#172228] md:bottom-20 md:right-5"
+      className="fixed bottom-28 right-4 z-30 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#172228] bg-lightGolden text-[#172228] shadow-[0_0_0_3px_rgba(13,25,30,.85)] transition hover:-translate-y-1 hover:bg-[#dfbd8b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#172228] md:bottom-20 md:right-5"
     >
       <ArrowUp size={20} strokeWidth={2.5} aria-hidden="true" />
     </button>
